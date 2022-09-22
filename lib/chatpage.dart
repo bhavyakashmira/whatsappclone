@@ -14,7 +14,7 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-      child: Icon(Icons.chat),
+      child: const Icon(Icons.chat),
       ),
      body: ListView(
       children: [
