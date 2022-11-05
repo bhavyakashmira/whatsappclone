@@ -4,23 +4,30 @@ import 'package:whatsapp/Model/ChatModel.dart';
 import 'package:whatsapp/screens/IndividualPage.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({Key? key , required this.chatModel}) : super(key: key);
+  const CustomCard({Key? key, required this.chatModel}) : super(key: key);
   final ChatModel chatModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => IndividualPage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => IndividualPage(
+                      chatModel: chatModel,
+                    )));
       },
       child: Column(
         children: [
           ListTile(
             leading: CircleAvatar(
               child: SvgPicture.asset(
-                chatModel.isGroup?'person_black_36dp.svg' : 'groups_black_36dp.svg',
+                chatModel.isGroup
+                    ? 'person_black_36dp.svg'
+                    : 'groups_black_36dp.svg',
                 color: Colors.white,
-                height: 38,
-                width: 38,
+                height: 36,
+                width: 36,
               ),
               backgroundColor: Colors.blueGrey,
               radius: 30,
@@ -39,7 +46,7 @@ class CustomCard extends StatelessWidget {
                   width: 3,
                 ),
                 Text(
-                 chatModel.currentMessage ,
+                  chatModel.currentMessage,
                   style: TextStyle(
                     fontSize: 13,
                   ),
@@ -91,6 +98,5 @@ class CustomCard extends StatelessWidget {
         ],
       ),
     );
-
   }
 }
